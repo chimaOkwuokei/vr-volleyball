@@ -7,13 +7,13 @@ public class ServingTarget : MonoBehaviour
     private Renderer targetRenderer;
     private Color originalColor;
 
-    void Start()
+    public void Start()
     {
         targetRenderer = GetComponent<Renderer>();
         originalColor = targetRenderer.material.color;
     }
 
-    void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
         {

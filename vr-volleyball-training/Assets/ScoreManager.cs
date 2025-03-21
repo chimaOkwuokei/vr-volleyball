@@ -6,7 +6,8 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     public int score = 0;
     public TMP_Text scoreText;
-    
+    public TMP_Text rankText;
+
     private int totalServes = 0;
     private int successfulHits = 0;
     public float accuracyThreshold = 0.7f; // 70% success needed to increase difficulty
@@ -34,6 +35,17 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreText != null)
             scoreText.text = "Score: " + score;
+            CheckForRanking();
+    }
+
+    void CheckForRanking()
+    {
+        if (score >= 101)
+            rankText.text = "Rank: Gold 🥇";
+        else if (score >= 51)
+            rankText.text = "Rank: Silver 🥈";
+        else
+            rankText.text = "Rank: Bronze 🥉";
     }
 
     void CheckForDifficultyIncrease()

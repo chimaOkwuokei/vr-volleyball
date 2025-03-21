@@ -7,6 +7,7 @@ TagManager:
   - Hand
   - Target
   - Ball
+  - Ground
   layers:
   - Default
   - TransparentFX
