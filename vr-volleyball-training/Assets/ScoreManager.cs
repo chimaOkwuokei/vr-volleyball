@@ -31,11 +31,17 @@ public class ScoreManager : MonoBehaviour
         CheckForDifficultyIncrease();
     }
 
+    public void ResetScore()
+    {
+        score = 0;
+        UpdateScoreUI();
+    }
+
     void UpdateScoreUI()
     {
         if (scoreText != null)
             scoreText.text = "Score: " + score;
-            CheckForRanking();
+        CheckForRanking();
     }
 
     void CheckForRanking()
