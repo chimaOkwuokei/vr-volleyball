@@ -1,28 +1,28 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class ServingTarget : MonoBehaviour
 {
-    public int scoreValue = 10;  
+    public int scoreValue = 10;
     private Renderer targetRenderer;
     private Color originalColor;
 
-    public void Start()
+    private void Start()
     {
         targetRenderer = GetComponent<Renderer>();
         originalColor = targetRenderer.material.color;
     }
 
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
         {
-            ScoreManager.instance.AddScore(scoreValue, true); // Pass "true" for hit success
+            ScoreManager.instance.AddScore(scoreValue, true); // ✅ Counts as a successful hit
             StartCoroutine(FlashTarget());
         }
     }
 
-    IEnumerator FlashTarget()
+    private IEnumerator FlashTarget()
     {
         targetRenderer.material.color = Color.green;
         yield return new WaitForSeconds(0.5f);

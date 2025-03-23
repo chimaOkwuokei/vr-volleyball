@@ -7,6 +7,7 @@ public class TrainingMenu : MonoBehaviour
     public GameObject servingDrill;    // Drag the "Serving" GameObject here
     public Button servingButton;       // Drag the "Serving Training" button here
     public Button endTraining;         // Drag the "End Training" button here
+    public ScoreManager scoreManagerScript; // Assign in Inspector
 
     void Start()
     {
@@ -26,7 +27,12 @@ public class TrainingMenu : MonoBehaviour
     }
 
     public void EndTraining()
-    {  
+    {
+        // Reset the score
+        if (scoreManagerScript != null)
+        {
+            scoreManagerScript.ResetScore();
+        }
         trainingMenuUI.SetActive(true);  // Show the menu
         servingDrill.SetActive(false);   // Hide any active training drill
         endTraining.gameObject.SetActive(false); // Hide End Training button

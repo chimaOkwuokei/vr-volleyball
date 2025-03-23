@@ -25,7 +25,7 @@ public class ServingDrill : MonoBehaviour
 
     void Start()
     {
-        instructionText.gameObject.SetActive(false); // Hide instructions initially
+        instructionText.gameObject.SetActive(true); // Hide instructions initially
         rankText.gameObject.SetActive(false);       // Hide rank initially
         countdownText.gameObject.SetActive(true);   // Show countdown UI
 
