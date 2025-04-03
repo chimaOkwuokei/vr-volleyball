@@ -1,22 +1,16 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
 
 public class InteractorSwitcher : MonoBehaviour
 {
     public XRRayInteractor rayInteractor;  
     public XRDirectInteractor directInteractor;
-    public InputHelpers.Button switchButton = InputHelpers.Button.PrimaryButton; // Example: A button on Quest
+    public InputActionProperty switchAction; // Action-based input
 
-    private XRController controller;
-
-    void Start()
+    private void Update()
     {
-        controller = GetComponent<XRController>();
-    }
-
-    void Update()
-    {
-        if (controller.inputDevice.IsPressed(switchButton, out bool pressed) && pressed)
+        if (switchAction.action.WasPressedThisFrame()) // Action-based input check
         {
             bool isRayActive = rayInteractor.enabled;
             rayInteractor.enabled = !isRayActive;

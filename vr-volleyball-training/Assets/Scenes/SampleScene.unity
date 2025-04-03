@@ -2108,7 +2108,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -5809,7 +5809,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayInteractor: {fileID: 1738324405}
   directInteractor: {fileID: 224494526}
-  switchButton: 6
+  switchAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Switch
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 560c7aad-bb8b-43b4-8aa6-229ddc142158
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!1 &1383384342
 GameObject:
   m_ObjectHideFlags: 0
@@ -7523,7 +7534,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayInteractor: {fileID: 927660630}
   directInteractor: {fileID: 661881485}
-  switchButton: 6
+  switchAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Switch
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f2a793a8-11ee-4a71-9f04-6e4d1a1b64c0
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!1001 &1965844880
 PrefabInstance:
   m_ObjectHideFlags: 0
