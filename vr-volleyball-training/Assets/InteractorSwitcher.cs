@@ -12,6 +12,7 @@ public class InteractorSwitcher : MonoBehaviour
     {
         if (switchAction.action.WasPressedThisFrame()) // Action-based input check
         {
+            Debug.Log("Switching interaction mode...");
             bool isRayActive = rayInteractor.enabled;
             rayInteractor.enabled = !isRayActive;
             directInteractor.enabled = isRayActive;

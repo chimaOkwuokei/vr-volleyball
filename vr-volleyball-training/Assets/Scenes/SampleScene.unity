@@ -606,8 +606,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1757397255}
   m_Father: {fileID: 0}
@@ -1441,7 +1441,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1441246186}
   m_Father: {fileID: 1270632037}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &224494525
@@ -3549,7 +3550,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1063069646}
   m_Father: {fileID: 1912794427}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &661881483
@@ -4241,6 +4243,7 @@ GameObject:
   - component: {fileID: 927660630}
   - component: {fileID: 927660629}
   - component: {fileID: 927660628}
+  - component: {fileID: 927660631}
   m_Layer: 0
   m_Name: Left RayInteractor
   m_TagString: Untagged
@@ -4648,6 +4651,27 @@ MonoBehaviour:
   m_OccludeARHitsWith3DObjects: 0
   m_OccludeARHitsWith2DObjects: 0
   m_ScaleMode: 0
+--- !u!135 &927660631
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927660626}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: -1.1176, z: 4.5}
 --- !u!1001 &990125553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4829,7 +4853,7 @@ GameObject:
   - component: {fileID: 1063069646}
   m_Layer: 0
   m_Name: Left Hand Model
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4842,13 +4866,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063069645}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1505491846}
-  m_Father: {fileID: 1912794427}
+  m_Father: {fileID: 661881482}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1096100846 stripped
 GameObject:
@@ -5400,13 +5424,12 @@ Transform:
   m_GameObject: {fileID: 1270632036}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.38, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1738324402}
   - {fileID: 224494524}
-  - {fileID: 1441246186}
   m_Father: {fileID: 1757397255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1270632038
@@ -6072,7 +6095,7 @@ GameObject:
   - component: {fileID: 1441246186}
   m_Layer: 0
   m_Name: Right Hand Model
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6085,13 +6108,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441246185}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2131363553}
-  m_Father: {fileID: 1270632037}
+  m_Father: {fileID: 224494524}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491766000
 GameObject:
@@ -6766,6 +6789,7 @@ GameObject:
   - component: {fileID: 1738324405}
   - component: {fileID: 1738324404}
   - component: {fileID: 1738324403}
+  - component: {fileID: 1738324406}
   m_Layer: 0
   m_Name: Right RayInteractor
   m_TagString: Untagged
@@ -7173,6 +7197,27 @@ MonoBehaviour:
   m_OccludeARHitsWith3DObjects: 0
   m_OccludeARHitsWith2DObjects: 0
   m_ScaleMode: 0
+--- !u!135 &1738324406
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738324401}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: -1.1176, z: 4.5}
 --- !u!1 &1757397254
 GameObject:
   m_ObjectHideFlags: 0
@@ -7243,7 +7288,6 @@ Transform:
   m_Children:
   - {fileID: 927660627}
   - {fileID: 661881482}
-  - {fileID: 1063069646}
   m_Father: {fileID: 1757397255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1912794428
@@ -7761,7 +7805,15 @@ MonoBehaviour:
       m_Id: f2a793a8-11ee-4a71-9f04-6e4d1a1b64c0
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 34e552dc-64fc-42fa-874b-5c81db11805b
+        m_Path: <XRController>{LeftHand}/primaryButton
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Switch
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
 --- !u!1001 &1965844880
