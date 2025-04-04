@@ -21,6 +21,7 @@ MonoBehaviour:
   - {fileID: 2980813122891508778}
   - {fileID: 1930148563392284264}
   - {fileID: -5501821376794627707}
+  - {fileID: 2444421150244344256}
   - {fileID: 6503580689453747182}
   - {fileID: 6978214095703332558}
   - {fileID: 8839993672095131699}
@@ -31,6 +32,7 @@ MonoBehaviour:
   - {fileID: -6271415145705498998}
   - {fileID: -8511974878636839543}
   - {fileID: -4481915847494369370}
+  - {fileID: -4824512866369382514}
   m_renderMode: 1
   m_autoColorSubmissionMode: 1
   m_colorSubmissionModes:
@@ -153,12 +155,12 @@ MonoBehaviour:
   m_Name: HandTracking Standalone
   m_EditorClassIdentifier: 
   m_enabled: 0
-  nameUi: 
-  version: 
-  featureIdInternal: 
-  openxrExtensionStrings: 
-  company: 
-  priority: 0
+  nameUi: Hand Tracking Subsystem
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.handtracking
+  openxrExtensionStrings: XR_EXT_hand_tracking
+  company: Unity
+  priority: -100
   required: 0
 --- !u!114 &-4481915847494369370
 MonoBehaviour:
@@ -301,11 +303,11 @@ MonoBehaviour:
   m_Name: MetaHandTrackingAim Standalone
   m_EditorClassIdentifier: 
   m_enabled: 0
-  nameUi: 
-  version: 
-  featureIdInternal: 
-  openxrExtensionStrings: 
-  company: 
+  nameUi: Meta Hand Tracking Aim
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.metahandtrackingaim
+  openxrExtensionStrings: XR_FB_hand_tracking_aim
+  company: Unity
   priority: 0
   required: 0
 --- !u!114 &2980813122891508778
