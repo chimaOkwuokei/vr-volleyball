@@ -443,15 +443,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "SwitchInteractor",
-                    "type": "Button",
-                    "id": "d7f86f08-1699-47a5-9be5-f6219bbf997a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -683,17 +674,6 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Grip Rotation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ee323adf-97ef-45e2-b1e9-7e5ef6bb3997",
-                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SwitchInteractor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
