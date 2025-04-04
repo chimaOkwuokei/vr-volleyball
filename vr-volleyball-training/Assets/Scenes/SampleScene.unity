@@ -3947,6 +3947,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138542266}
   m_CullTransparentMesh: 1
+--- !u!4 &1154498417 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 202364688, guid: f6336ac4ac8b4d34bc5072418cdc62a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1304332066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1220495097 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 4c917e289c006634ea080435b9c00814,
@@ -4178,7 +4184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e034eb4305978fc429306a61dd4e3923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  servePosition: {fileID: 0}
+  servePosition: {fileID: 1154498417}
 --- !u!4 &1261003073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4c917e289c006634ea080435b9c00814,
@@ -4335,6 +4341,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 202364687, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_TagString
+      value: Hand
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670256624, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_TagString
+      value: Hand
+      objectReference: {fileID: 0}
     - target: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
       value: 5
