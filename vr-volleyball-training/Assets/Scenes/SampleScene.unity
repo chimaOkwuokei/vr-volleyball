@@ -4679,7 +4679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handHitSound: {fileID: 8300000, guid: f038ae03a96d53241877aeecb3018306, type: 3}
-  soundDuration: 0.15
+  soundDuration: 2
 --- !u!82 &1220495110
 AudioSource:
   m_ObjectHideFlags: 0
