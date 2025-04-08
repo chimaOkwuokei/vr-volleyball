@@ -1,8 +1,11 @@
 using UnityEngine;
+using System.Collections;
 
-public class BallSound : MonoBehaviour
+public class BallHit : MonoBehaviour
 {
-    public AudioClip bounceSound;
+    public AudioClip handHitSound;
+    public float soundDuration = 0.15f; // short, punchy feel (adjust if needed)
+
     private AudioSource audioSource;
 
     void Start()
@@ -12,9 +15,17 @@ public class BallSound : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (bounceSound != null)
+        if (collision.gameObject.CompareTag("Hand") && handHitSound != null)
         {
-            audioSource.PlayOneShot(bounceSound);
+            StartCoroutine(PlayShortClip());
         }
+    }
+
+    IEnumerator PlayShortClip()
+    {
+        audioSource.clip = handHitSound;
+        audioSource.Play();
+        yield return new WaitForSeconds(soundDuration);
+        audioSource.Stop();
     }
 }

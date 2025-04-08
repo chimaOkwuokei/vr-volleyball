@@ -4199,6 +4199,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Hand Model
       objectReference: {fileID: 0}
+    - target: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hand
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4481,7 +4486,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.015
+  m_Radius: 0.02
   m_Center: {x: -0.0000000013969839, y: 0.0000000013969828, z: 0}
 --- !u!114 &1220495103
 MonoBehaviour:
@@ -4673,7 +4678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38a3521623d5ce4c9821742c2798aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 8300000, guid: f038ae03a96d53241877aeecb3018306, type: 3}
+  handHitSound: {fileID: 8300000, guid: f038ae03a96d53241877aeecb3018306, type: 3}
+  soundDuration: 0.15
 --- !u!82 &1220495110
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5062,7 +5068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1670256624, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_TagString
-      value: Hand
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1670256628, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_ModelParent
