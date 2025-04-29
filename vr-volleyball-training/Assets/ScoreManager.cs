@@ -16,8 +16,8 @@ public class ScoreManager : MonoBehaviour
     private float accuracy;
     public float accuracyThreshold = 0.7f; // 70% success needed to increase difficulty
 
-    public delegate void OnProgressUpdate(float accuracy);
-    public static event OnProgressUpdate ProgressUpdated;
+    // public delegate void OnProgressUpdate(float accuracy);
+    // public static event OnProgressUpdate ProgressUpdated;
 
     void Awake()
     {
