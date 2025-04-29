@@ -3,8 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.UI;
 
-
-public class ServingDrill : MonoBehaviour
+public class PassingDrill : MonoBehaviour
 {
     public TMP_Text instructionText; // Assign in Inspector
     public GameObject[] targets;     // Assign all target GameObjects in Inspector
@@ -14,6 +13,7 @@ public class ServingDrill : MonoBehaviour
     public Button restartButton;     // Assign Restart Button in Inspector
     public AudioSource timeUpSound;  // Assign an AudioSource (drag an AudioClip)
     public ScoreManager scoreManagerScript; // Assign in Inspector
+    public CoachServeSpawner serveSpawner; // Assign in Inspector
 
     private float drillDuration = 300f; // 5 minutes
     private bool isDrillActive = false;
@@ -41,6 +41,17 @@ public class ServingDrill : MonoBehaviour
         StartCoroutine(ShowInstructions());
         StartCoroutine(DrillTimer());
         StartCoroutine(UpdateCountdownUI());
+        // 🟢 Start serving after a short delay or immediately
+        if (serveSpawner != null)
+        {
+            Invoke("ServeFirstBall", 3f); // Optional delay to sync with UI
+        }
+    }
+
+    private void ServeFirstBall()
+    {
+        Debug.Log("first ball served");
+        serveSpawner.ServeBall(); // Call the serve function
     }
 
     IEnumerator ShowInstructions()

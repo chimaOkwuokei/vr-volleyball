@@ -21,6 +21,9 @@ public class BallReset : MonoBehaviour
         }else if (other.CompareTag("Target")){
             Debug.Log("Ball Hit Target");
             ResetBall();
+        }else if (other.CompareTag("CourtTarget")){
+            Debug.Log("Ball Hit Target");
+            ResetBall();
         }
     }
 

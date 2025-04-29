@@ -8,6 +8,10 @@ TagManager:
   - Target
   - Ball
   - Ground
+  - CourtTarget
+  - MainPassTarget
+  - SecondaryPassTarget
+  - CoachBall
   layers:
   - Default
   - TransparentFX

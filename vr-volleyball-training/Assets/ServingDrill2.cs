@@ -3,11 +3,10 @@ using TMPro;
 using System.Collections;
 using UnityEngine.UI;
 
-
-public class ServingDrill : MonoBehaviour
+public class ServingDrill2 : MonoBehaviour
 {
     public TMP_Text instructionText; // Assign in Inspector
-    public GameObject[] targets;     // Assign all target GameObjects in Inspector
+    public GameObject target;     // Assign all target GameObjects in Inspector
     // public GameObject scoreManager;  // Assign the ScoreManager
     public TMP_Text rankText;        // Assign RankText in Inspector
     public TMP_Text countdownText;   // Assign Countdown UI Text
@@ -55,10 +54,9 @@ public class ServingDrill : MonoBehaviour
         yield return new WaitForSeconds(drillDuration); // Wait for 5 min
 
         // Disable all targets
-        foreach (GameObject target in targets)
-        {
-            target.SetActive(false);
-        }
+
+        target.SetActive(false);
+
 
         // Show score, rank, and restart button
         // scoreManager.SetActive(true);
@@ -104,10 +102,9 @@ public class ServingDrill : MonoBehaviour
         }
 
         // Reset targets
-        foreach (GameObject target in targets)
-        {
-            target.SetActive(true);
-        }
+
+        target.SetActive(true);
+
 
         // scoreManager.SetActive(false);
         rankText.gameObject.SetActive(false);

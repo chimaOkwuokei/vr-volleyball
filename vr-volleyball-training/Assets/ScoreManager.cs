@@ -35,7 +35,7 @@ public class ScoreManager : MonoBehaviour
             successfulHits++;
         }
         UpdateScoreUI();
-        CheckForDifficultyIncrease();
+        // CheckForDifficultyIncrease();
     }
 
     public void ResetScore()
@@ -52,9 +52,16 @@ public class ScoreManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = "Score: " + score;
-            servesText.text = "Serves: " + totalServes;
-            hitsText.text = "Hits: " + successfulHits;
-            accuracyText.text = "Accuracy: " + accuracy;
+            // string label = currentDrill == DrillType.Passing ? "Passes" : "Serves";
+            servesText.text = "Total"+ ": " + totalServes;
+
+            // string hitLabel = currentDrill == DrillType.Passing ? "Successful Passes" : "Hits";
+            hitsText.text = "Success" + ": " + successfulHits;
+
+            accuracy = (totalServes > 0) ? (float)successfulHits / totalServes : 0f;
+
+            accuracyText.text = "Accuracy: " + (accuracy * 100) + "%";
+           
         }
 
         CheckForRanking();
@@ -70,16 +77,16 @@ public class ScoreManager : MonoBehaviour
             rankText.text = "Rank: Bronze 🥉";
     }
 
-    void CheckForDifficultyIncrease()
-    {
-        servesText.text = "Serves: " + totalServes;
-        hitsText.text = "Hits: " + successfulHits;
+    // void CheckForDifficultyIncrease()
+    // {
+    //     servesText.text = "Total: " + totalServes;
+    //     hitsText.text = "Success: " + successfulHits;
 
-        accuracy = (totalServes > 0) ? (float)successfulHits / totalServes : 0f;
+    //     accuracy = (totalServes > 0) ? (float)successfulHits / totalServes : 0f;
 
-        accuracyText.text = "Accuracy: " + (accuracy * 100) + "%";
+    //     accuracyText.text = "Accuracy: " + (accuracy * 100) + "%";
 
-        // Notify DifficultyManager about player performance
-        ProgressUpdated?.Invoke(accuracy);
-    }
+    //     // Notify DifficultyManager about player performance
+    //     ProgressUpdated?.Invoke(accuracy);
+    // }
 }
