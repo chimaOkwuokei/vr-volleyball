@@ -34,17 +34,20 @@ public class CoachServeSpawner : MonoBehaviour
             return;
         }
 
-        // Move ball above targetTransform
-        Vector3 spawnPosition = targetTransform.position + Vector3.up * dropHeight;
+        // Offset the spawn slightly forward (e.g., 0.5 units in front)
+        Vector3 basePosition = new Vector3(1.6f, 1.3f, 3.9f);
+        Vector3 forwardOffset = new Vector3(0f, 0f, 0.4f); // Adjust z as needed
+
+        Vector3 spawnPosition = basePosition + forwardOffset + Vector3.up * dropHeight;
+
         ball.transform.position = spawnPosition;
         ball.transform.rotation = Quaternion.identity;
 
-        // Activate physics
         rb.isKinematic = false;
         rb.useGravity = true;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        Debug.Log("CoachServeSpawner: Ball served at " + spawnPosition);
+        Debug.Log($"Ball dropped from {spawnPosition}");
     }
 }

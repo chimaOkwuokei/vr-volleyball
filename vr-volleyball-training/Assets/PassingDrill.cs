@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PassingDrill : MonoBehaviour
 {
+    // public GameObject playerObject; // Assign in Inspector
     public TMP_Text instructionText; // Assign in Inspector
     public GameObject[] targets;     // Assign all target GameObjects in Inspector
     // public GameObject scoreManager;  // Assign the ScoreManager
@@ -42,6 +43,11 @@ public class PassingDrill : MonoBehaviour
         StartCoroutine(DrillTimer());
         StartCoroutine(UpdateCountdownUI());
         // 🟢 Start serving after a short delay or immediately
+        // if (playerObject != null)
+        // {
+        //     playerObject.transform.position = new Vector3(1.6f, 1.3f, 3.9f);
+        //     playerObject.transform.rotation = Quaternion.identity;
+        // }
         if (serveSpawner != null)
         {
             Invoke("ServeFirstBall", 3f); // Optional delay to sync with UI
