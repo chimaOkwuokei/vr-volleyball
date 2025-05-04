@@ -6,11 +6,16 @@ public class HitScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ball"))
+        string tag = collision.gameObject.tag;
+
+        if (tag == "Ball" || tag == "CoachBall")
         {
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-            Vector3 hitDirection = collision.relativeVelocity.normalized;
-            rb.AddForce(hitDirection * hitPower, ForceMode.Impulse);
+            if (rb != null)
+            {
+                Vector3 hitDirection = collision.relativeVelocity.normalized;
+                rb.AddForce(hitDirection * hitPower, ForceMode.Impulse);
+            }
         }
     }
 }

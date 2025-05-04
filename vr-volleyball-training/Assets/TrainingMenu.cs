@@ -13,6 +13,7 @@ public class TrainingMenu : MonoBehaviour
     public Button passingButton;       // Drag the "Serving Training" button here
     public ScoreManager scoreManagerScript; // Assign in Inspector
 
+    public PassingDrill passDrillScript;
     void Start()
     {
         trainingMenuUI.SetActive(true);   // Show the menu at the start
@@ -46,6 +47,11 @@ public class TrainingMenu : MonoBehaviour
         trainingMenuUI.SetActive(false); // Hide menu
         passingDrill.SetActive(true);    // Show Serving Drill
         endTraining.gameObject.SetActive(true);  // Show End Training button
+        // Reset the score
+        if (passDrillScript != null)
+        {
+            passDrillScript.StartDrill();
+        }
     }
     public void EndTraining()
     {

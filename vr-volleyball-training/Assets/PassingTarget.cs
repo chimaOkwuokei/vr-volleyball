@@ -16,7 +16,7 @@ public class PassingTarget : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ball"))
+        if (other.CompareTag("CoachBall"))
         {
             ScoreManager.instance.AddScore(scoreValue, true); // ✅ Add points
             StartCoroutine(FlashTarget());

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class CoachServeSpawner : MonoBehaviour
 {
-    public GameObject ball;               // Assign the ball in Inspector
-    public Transform targetTransform;     // The player's hand or center point
-    public float dropHeight = 3f;         // How high above the target to drop
+    public GameObject ball;               // Assign the ball prefab or object in Inspector
+    public Transform targetTransform;     // Assign the player's hand, chest, or center point in Inspector
+    public float dropHeight = 1.2f;       // Optional vertical offset (simulating a toss)
 
     private Rigidbody rb;
 
@@ -13,7 +13,7 @@ public class CoachServeSpawner : MonoBehaviour
         if (ball == null || targetTransform == null)
         {
             Debug.LogError("CoachServeSpawner: Assign ball and targetTransform in Inspector.");
-            enabled = false; // Disable this script to avoid further errors
+            enabled = false;
             return;
         }
 
@@ -34,20 +34,24 @@ public class CoachServeSpawner : MonoBehaviour
             return;
         }
 
-        // Offset the spawn slightly forward (e.g., 0.5 units in front)
-        Vector3 basePosition = new Vector3(1.6f, 1.3f, 3.9f);
-        Vector3 forwardOffset = new Vector3(0f, 0f, 0.4f); // Adjust z as needed
-
-        Vector3 spawnPosition = basePosition + forwardOffset + Vector3.up * dropHeight;
-
+        // Spawn the ball slightly above coach position
+        Vector3 spawnPosition = transform.position + Vector3.up * dropHeight;
+        ball.SetActive(false);
         ball.transform.position = spawnPosition;
         ball.transform.rotation = Quaternion.identity;
+        ball.SetActive(true);
 
         rb.isKinematic = false;
         rb.useGravity = true;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        Debug.Log($"Ball dropped from {spawnPosition}");
+        // Apply force toward the player
+        // Vector3 direction = (targetTransform.position - spawnPosition).normalized;
+         Vector3 direction = (targetTransform.position).normalized;
+        float serveForce = 4f; // Adjust as needed
+        rb.AddForce(direction * serveForce, ForceMode.VelocityChange);
+
+        Debug.Log($"Ball served from {spawnPosition} toward {targetTransform.position}");
     }
 }

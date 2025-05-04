@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PassingDrill : MonoBehaviour
 {
-    // public GameObject playerObject; // Assign in Inspector
+    public GameObject playerObject; // Assign in Inspector
     public TMP_Text instructionText; // Assign in Inspector
     public GameObject[] targets;     // Assign all target GameObjects in Inspector
     // public GameObject scoreManager;  // Assign the ScoreManager
@@ -22,7 +22,8 @@ public class PassingDrill : MonoBehaviour
 
     void OnEnable()
     {
-        StartDrill(); // Automatically start the drill
+        Debug.Log("StartDrill() called");
+        // StartDrill(); // Automatically start the drill
     }
 
     void Start()
@@ -37,20 +38,22 @@ public class PassingDrill : MonoBehaviour
 
     public void StartDrill()
     {
+        Debug.Log("StartDrill()2 called");
         isDrillActive = true;
         timeLeft = drillDuration;
         StartCoroutine(ShowInstructions());
         StartCoroutine(DrillTimer());
         StartCoroutine(UpdateCountdownUI());
         // 🟢 Start serving after a short delay or immediately
-        // if (playerObject != null)
-        // {
-        //     playerObject.transform.position = new Vector3(1.6f, 1.3f, 3.9f);
-        //     playerObject.transform.rotation = Quaternion.identity;
-        // }
+        if (playerObject != null)
+        {
+            playerObject.transform.position = new Vector3(0.8f, 0f, -3.5f); // Update this to fit your court's left sideline
+            playerObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);  // Face them toward the center/right
+        }
+
         if (serveSpawner != null)
         {
-            Invoke("ServeFirstBall", 3f); // Optional delay to sync with UI
+            Invoke("ServeFirstBall", 6f); // Optional delay to sync with UI
         }
     }
 
