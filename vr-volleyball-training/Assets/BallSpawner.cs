@@ -2,56 +2,79 @@ using UnityEngine;
 
 public class CoachServeSpawner : MonoBehaviour
 {
-    public GameObject ball;               // Assign the ball prefab or object in Inspector
-    public Transform targetTransform;     // Assign the player's hand, chest, or center point in Inspector
-    public float dropHeight = 1.2f;       // Optional vertical offset (simulating a toss)
+    public GameObject ball;
+    public Transform targetTransform;  // Player's center or chest
+    public Transform serveOrigin;     // Position on left court (set in Inspector)
 
-    private Rigidbody rb;
+    [Header("Serve Settings")]
+    public float serveHeight = 2.5f;         // How high the ball arcs
+    public float serveTime = 1.2f;           // Time it takes to reach the target
+    public float angleVariation = 5f;        // Small left/right randomness
+
+    private Rigidbody ballRb;
 
     void Awake()
     {
-        if (ball == null || targetTransform == null)
+        if (ball == null || targetTransform == null || serveOrigin == null)
         {
-            Debug.LogError("CoachServeSpawner: Assign ball and targetTransform in Inspector.");
+            Debug.LogError("CoachServeSpawner: Missing references.");
             enabled = false;
             return;
         }
 
-        rb = ball.GetComponent<Rigidbody>();
-        if (rb == null)
+        ballRb = ball.GetComponent<Rigidbody>();
+        if (ballRb == null)
         {
-            Debug.LogError("CoachServeSpawner: Ball is missing Rigidbody!");
+            Debug.LogError("CoachServeSpawner: Ball needs Rigidbody.");
             enabled = false;
-            return;
         }
     }
 
     public void ServeBall()
     {
-        if (ball == null || targetTransform == null || rb == null)
-        {
-            Debug.LogError("CoachServeSpawner: Missing references when trying to serve.");
-            return;
-        }
-
-        // Spawn the ball slightly above coach position
-        Vector3 spawnPosition = transform.position + Vector3.up * dropHeight;
+        // Reset
+        ballRb.isKinematic = true;
+        ballRb.useGravity = false;
         ball.SetActive(false);
-        ball.transform.position = spawnPosition;
+
+        // Set starting point
+        ball.transform.position = serveOrigin.position;
         ball.transform.rotation = Quaternion.identity;
+        ballRb.velocity = Vector3.zero;
+        ballRb.angularVelocity = Vector3.zero;
         ball.SetActive(true);
 
-        rb.isKinematic = false;
-        rb.useGravity = true;
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        // Calculate target with randomness
+        Vector3 finalTarget = targetTransform.position;
+        finalTarget += new Vector3(Random.Range(-angleVariation, angleVariation), 0, 0); // Random horizontal aim
 
-        // Apply force toward the player
-        // Vector3 direction = (targetTransform.position - spawnPosition).normalized;
-         Vector3 direction = (targetTransform.position).normalized;
-        float serveForce = 4f; // Adjust as needed
-        rb.AddForce(direction * serveForce, ForceMode.VelocityChange);
+        // Compute velocity to arc toward the target
+        Vector3 velocity = CalculateArcVelocity(serveOrigin.position, finalTarget, serveHeight, serveTime);
 
-        Debug.Log($"Ball served from {spawnPosition} toward {targetTransform.position}");
+        // Apply
+        ballRb.isKinematic = false;
+        ballRb.useGravity = true;
+        ballRb.velocity = velocity;
+
+        Debug.Log("Ball served with arc velocity: " + velocity);
+    }
+
+    /// <summary>
+    /// Calculates velocity to reach a target using an arc.
+    /// </summary>
+    Vector3 CalculateArcVelocity(Vector3 start, Vector3 end, float height, float time)
+    {
+        Vector3 toTarget = end - start;
+        Vector3 toTargetXZ = new Vector3(toTarget.x, 0, toTarget.z);
+
+        float yOffset = toTarget.y;
+        float xzDistance = toTargetXZ.magnitude;
+
+        float Vy = (height - start.y) * 2f / time + Physics.gravity.y * time / 2f;
+        float Vxz = xzDistance / time;
+
+        Vector3 result = toTargetXZ.normalized * Vxz;
+        result.y = Vy;
+        return result;
     }
 }
