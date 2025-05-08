@@ -6115,6 +6115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPower: 5
+  hapticAmplitude: 0.6
+  hapticDuration: 0.1
+  xrController: {fileID: 1304332068}
 --- !u!54 &1099216562
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7364,6 +7367,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPower: 5
+  hapticAmplitude: 0.6
+  hapticDuration: 0.1
+  xrController: {fileID: 1304332067}
 --- !u!54 &1281710459
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7391,8 +7397,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!135 &1281710460
-SphereCollider:
+--- !u!65 &1281710460
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7406,12 +7412,12 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.08
-  m_Center: {x: 0, y: 0, z: 0.05}
+  m_Size: {x: 0.08, y: 0.01, z: 0.08}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1296988228
 GameObject:
   m_ObjectHideFlags: 0
