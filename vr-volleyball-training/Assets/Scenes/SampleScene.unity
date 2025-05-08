@@ -1637,7 +1637,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1099216561}
+      addedObject: {fileID: 1099216564}
   m_SourcePrefab: {fileID: 100100000, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
 --- !u!1 &198814255
 GameObject:
@@ -6102,29 +6102,6 @@ MonoBehaviour:
     m_Reference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   handAnimator: {fileID: 1099216559}
---- !u!136 &1099216561
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099216557}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1099216562
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6168,6 +6145,29 @@ MonoBehaviour:
   forceMultiplier: 10
   hapticAmplitude: 0.6
   hapticDuration: 0.1
+  controllerNode: 4
+  xrController: {fileID: 1304332068}
+--- !u!135 &1099216564
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099216557}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.08
+  m_Center: {x: 0, y: 0, z: 0.05}
 --- !u!1 &1121771964
 GameObject:
   m_ObjectHideFlags: 0
@@ -7368,10 +7368,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b2d12c62debe94e8b2efaa33db3da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitThreshold: 1.2
+  hitThreshold: 0.5
   forceMultiplier: 10
   hapticAmplitude: 0.6
   hapticDuration: 0.1
+  controllerNode: 5
+  xrController: {fileID: 1304332067}
 --- !u!54 &1281710459
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7399,8 +7401,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!136 &1281710460
-CapsuleCollider:
+--- !u!135 &1281710460
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7417,11 +7419,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_Radius: 0.08
+  m_Center: {x: 0, y: 0, z: 0.05}
 --- !u!1 &1296988228
 GameObject:
   m_ObjectHideFlags: 0
@@ -7796,6 +7796,30 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 413593921}
   m_SourcePrefab: {fileID: 100100000, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+--- !u!114 &1304332067 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1670256628, guid: f6336ac4ac8b4d34bc5072418cdc62a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1304332066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caff514de9b15ad48ab85dcff5508221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1304332068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 202364692, guid: f6336ac4ac8b4d34bc5072418cdc62a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1304332066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caff514de9b15ad48ab85dcff5508221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1317479951
 GameObject:
   m_ObjectHideFlags: 0

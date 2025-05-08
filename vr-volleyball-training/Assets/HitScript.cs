@@ -20,42 +20,44 @@
 //     }
 // }
 using UnityEngine;
+using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class HitTriggerScript : MonoBehaviour
 {
     public float hitThreshold = 0.5f;
-    public float forceMultiplier = 10f;
+    public float forceMultiplier = 15f;
     public float hapticAmplitude = 0.6f;
     public float hapticDuration = 0.1f;
+    public XRNode controllerNode; // LeftHand or RightHand
+    public XRBaseController xrController; // Assign in Inspector for haptics
 
-    private XRBaseController controller;
+    private InputDevice device;
 
     void Start()
     {
-        controller = GetComponentInParent<XRBaseController>();
+        device = InputDevices.GetDeviceAtXRNode(controllerNode);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball") || other.CompareTag("CoachBall"))
         {
             Rigidbody ballRb = other.GetComponent<Rigidbody>();
-            Rigidbody handRb = GetComponent<Rigidbody>();
+            if (ballRb == null || !device.isValid) return;
 
-            if (ballRb == null || handRb == null) return;
-
-            Vector3 handVelocity = handRb.velocity;
-
-            if (handVelocity.magnitude > hitThreshold)
+            if (device.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity))
             {
-                Vector3 hitDirection = handVelocity.normalized;
-                ballRb.AddForce(hitDirection * forceMultiplier, ForceMode.Impulse);
-
-                // Trigger Haptics
-                if (controller != null)
+                if (velocity.magnitude > hitThreshold)
                 {
-                    controller.SendHapticImpulse(hapticAmplitude, hapticDuration);
+                    Vector3 hitDirection = velocity.normalized;
+                    ballRb.AddForce(hitDirection * velocity.magnitude * forceMultiplier, ForceMode.Impulse);
+
+                    // ✅ Trigger Haptics
+                    if (xrController != null)
+                    {
+                        xrController.SendHapticImpulse(hapticAmplitude, hapticDuration);
+                    }
                 }
             }
         }
