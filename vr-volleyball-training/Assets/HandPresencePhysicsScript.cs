@@ -6,8 +6,8 @@ public class HandPresencePhysicsScript : MonoBehaviour
 {
     public Transform target;
     private Rigidbody rb;
-    public Renderer nonPhysicalHand;
-    public float showNonPhysicalHandDistance = 0.05f;
+    // public Renderer nonPhysicalHand;
+    // public float showNonPhysicalHandDistance = 0.05f;
 
     private Collider[] handColliders;
     // Start is called before the first frame update
@@ -31,16 +31,16 @@ public class HandPresencePhysicsScript : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        float distance = Vector3.Distance(transform.position, target.position);
+    // private void Update()
+    // {
+    //     float distance = Vector3.Distance(transform.position, target.position);
 
-        if(distance>showNonPhysicalHandDistance){
-            nonPhysicalHand.enabled =true;
-        }else{
-            nonPhysicalHand.enabled =false;
-        }
-    }
+    //     if(distance>showNonPhysicalHandDistance){
+    //         nonPhysicalHand.enabled =true;
+    //     }else{
+    //         nonPhysicalHand.enabled =false;
+    //     }
+    // }
 
 
     // Update is called once per frame
