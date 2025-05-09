@@ -21,8 +21,8 @@ TagManager:
   - UI
   - TargetLayer
   - GroundLayer
-  - 
-  - 
+  - LeftHandPhysics
+  - RightHandPhysics
   - 
   - 
   - 
