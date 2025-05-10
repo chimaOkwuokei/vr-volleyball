@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class BallPhysics : MonoBehaviour
+public class BallHitResponse : MonoBehaviour
 {
-    public float forceMultiplier = 10f; // Adjust this value as needed
+    public float forceMultiplier = 5f;
     private Rigidbody rb;
+    private bool hasBeenHit = false;
 
     void Start()
     {
@@ -12,14 +13,25 @@ public class BallPhysics : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Hand")) // Ensure your VR hands have the "Hand" tag
+        if (hasBeenHit) return;
+
+        if (collision.collider.CompareTag("Hand"))
         {
-            Rigidbody handRb = collision.gameObject.GetComponent<Rigidbody>();
+            // Get hand velocity if it's tracked (e.g., using XR controller velocity)
+            Rigidbody handRb = collision.collider.attachedRigidbody;
             if (handRb != null)
             {
-                Vector3 appliedForce = handRb.velocity * forceMultiplier;
-                rb.AddForce(appliedForce, ForceMode.Impulse);
+                Vector3 hitDirection = handRb.velocity;
+                rb.AddForce(hitDirection * forceMultiplier, ForceMode.Impulse);
+                hasBeenHit = true;
             }
         }
+    }
+
+    public void ResetBall()
+    {
+        hasBeenHit = false;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 }

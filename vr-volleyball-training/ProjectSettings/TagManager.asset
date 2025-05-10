@@ -12,6 +12,8 @@ TagManager:
   - MainPassTarget
   - SecondaryPassTarget
   - CoachBall
+  - Left Hand
+  - Right Hand
   layers:
   - Default
   - TransparentFX
@@ -24,8 +26,8 @@ TagManager:
   - LeftHandPhysics
   - RightHandPhysics
   - NonPhysicsHandLayer
-  - 
-  - 
+  - PlayerLayer
+  - Interactable
   - 
   - 
   - 
