@@ -22,7 +22,7 @@ public class BallReset : MonoBehaviour
             Debug.Log("Ball Hit Target");
             ResetBall();
         }else if (other.CompareTag("CourtTarget")){
-            Debug.Log("Ball Hit Target");
+            Debug.Log("Ball Hit Court Target for serving 2 drill");
             ResetBall();
         }
     }

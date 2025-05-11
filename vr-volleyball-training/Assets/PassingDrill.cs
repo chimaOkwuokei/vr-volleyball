@@ -20,11 +20,11 @@ public class PassingDrill : MonoBehaviour
     private bool isDrillActive = false;
     private float timeLeft;
 
-    void OnEnable()
-    {
-        Debug.Log("StartDrill() called");
-        // StartDrill(); // Automatically start the drill
-    }
+    // void OnEnable()
+    // {
+    //     Debug.Log("StartDrill() called");
+    //     // StartDrill(); // Automatically start the drill
+    // }
 
     void Start()
     {
@@ -45,11 +45,11 @@ public class PassingDrill : MonoBehaviour
         StartCoroutine(DrillTimer());
         StartCoroutine(UpdateCountdownUI());
         // 🟢 Start serving after a short delay or immediately
-        if (playerObject != null)
-        {
-            playerObject.transform.position = new Vector3(0.8f, 0f, -3.5f); // Update this to fit your court's left sideline
-            playerObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);  // Face them toward the center/right
-        }
+        // if (playerObject != null)
+        // {
+        //     playerObject.transform.position = new Vector3(0.8f, 0f, -3.5f); // Update this to fit your court's left sideline
+        //     playerObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);  // Face them toward the center/right
+        // }
 
         if (serveSpawner != null)
         {

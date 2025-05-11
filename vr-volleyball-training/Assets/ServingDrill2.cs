@@ -14,7 +14,7 @@ public class ServingDrill2 : MonoBehaviour
     public AudioSource timeUpSound;  // Assign an AudioSource (drag an AudioClip)
     public ScoreManager scoreManagerScript; // Assign in Inspector
 
-    private float drillDuration = 300f; // 5 minutes
+    private float drillDuration = 120f; // 5 minutes
     private bool isDrillActive = false;
     private float timeLeft;
 

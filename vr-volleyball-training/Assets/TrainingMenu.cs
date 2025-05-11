@@ -38,14 +38,14 @@ public class TrainingMenu : MonoBehaviour
     public void StartServingTraining2()
     {
         trainingMenuUI.SetActive(false); // Hide menu
-        servingDrill2.SetActive(true);    // Show Serving Drill
+        servingDrill2.SetActive(true);    // Show Serving 2Drill
         endTraining.gameObject.SetActive(true);  // Show End Training button
     }
 
     public void StartPassingTraining()
     {
         trainingMenuUI.SetActive(false); // Hide menu
-        passingDrill.SetActive(true);    // Show Serving Drill
+        passingDrill.SetActive(true);    // Show passing Drill
         endTraining.gameObject.SetActive(true);  // Show End Training button
         // Reset the score
         if (passDrillScript != null)

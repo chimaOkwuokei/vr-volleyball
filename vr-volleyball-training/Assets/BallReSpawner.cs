@@ -12,28 +12,34 @@ public class BallCollisionHandler : MonoBehaviour
     {
         string hitTag = collision.gameObject.tag;
 
-        // If it's a valid target, do nothing
+        // Check if it's a valid target
         foreach (string tag in validTargetTags)
         {
             if (hitTag == tag)
             {
-                Debug.Log("Hit valid target: " + tag);
+                Debug.Log("Hit valid target: " + tag + " — scheduling respawn in " + respawnDelay + " seconds.");
+                TryScheduleRespawn();
                 return;
             }
         }
 
-        // If it hit the ground, respawn
+        // If it hit the ground, also respawn
         if (hitTag == "Ground")
         {
             Debug.Log("Hit the ground — scheduling respawn in " + respawnDelay + " seconds.");
-            if (serveSpawner != null)
-            {
-                Invoke(nameof(RespawnBall), respawnDelay);
-            }
-            else
-            {
-                Debug.LogWarning("ServeSpawner not assigned in BallCollisionHandler.");
-            }
+            TryScheduleRespawn();
+        }
+    }
+
+    void TryScheduleRespawn()
+    {
+        if (serveSpawner != null)
+        {
+            Invoke(nameof(RespawnBall), respawnDelay);
+        }
+        else
+        {
+            Debug.LogWarning("ServeSpawner not assigned in BallCollisionHandler.");
         }
     }
 
