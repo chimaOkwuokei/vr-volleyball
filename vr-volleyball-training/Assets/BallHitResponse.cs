@@ -1,7 +1,6 @@
 
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class BallHitResponse : MonoBehaviour
 {
     public float hitForceMultiplier = 10f;
@@ -12,15 +11,15 @@ public class BallHitResponse : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+   void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Hand"))
         {
-            var velocityTracker = collision.gameObject.GetComponent<HandVelocityTracker>();
-            if (velocityTracker != null)
+            Rigidbody handRb = collision.gameObject.GetComponent<Rigidbody>();
+            if (handRb != null)
             {
-                Vector3 hitVelocity = velocityTracker.Velocity;
-                rb.AddForce(hitVelocity * hitForceMultiplier, ForceMode.Impulse);
+                Vector3 appliedForce = handRb.velocity * hitForceMultiplier;
+                rb.AddForce(appliedForce, ForceMode.Impulse);
                 Debug.Log("Ball hit by: " + collision.gameObject.name);
             }
         }
